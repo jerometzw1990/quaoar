@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quaoar Consulting Limited — KYC & AML Compliance Advisory</title>
+<meta name="description" content="Quaoar Consulting Limited designs, builds and runs KYC, KYB and AML compliance programs for financial institutions, payment firms and digital asset businesses across Asia-Pacific.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#131A33;
+  --ink-deep:#0B0F22;
+  --ink-soft:#1C2547;
+  --paper:#F7F6F2;
+  --paper-dim:#EFEDE6;
+  --line:#E0DDD2;
+  --gold:#C9A14E;
+  --gold-bright:#E2C277;
+  --gold-deep:#B8893B;
+  --slate:#4A5168;
+  --mono:'IBM Plex Mono',monospace;
+  --disp:'Space Grotesk',sans-serif;
+  --body:'Inter',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);color:var(--ink);background:var(--paper);line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:2px}
+img,svg{display:block;max-width:100%}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold-deep);display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.eyebrow::before{content:"";width:26px;height:1px;background:var(--gold)}
+h1,h2,h3{font-family:var(--disp);line-height:1.12;font-weight:600}
+h2{font-size:clamp(28px,4vw,42px);letter-spacing:-.01em}
+section{padding:96px 0}
+.lead{color:var(--slate);max-width:560px}
+
+/* ---------- Nav ---------- */
+header{position:sticky;top:0;z-index:50;background:rgba(247,246,242,.92);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:74px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand svg{width:42px;height:42px}
+.brand-name{font-family:var(--disp);font-weight:600;letter-spacing:.14em;font-size:17px}
+.brand-name span{display:block;font-size:9px;letter-spacing:.42em;color:var(--gold-deep);font-weight:500;margin-top:1px}
+.nav-links{display:flex;gap:34px;align-items:center;font-size:14.5px;font-weight:500}
+.nav-links a{color:var(--slate);transition:color .2s}
+.nav-links a:hover{color:var(--ink)}
+.nav-links a.btn-solid{color:#FFFFFF}
+.nav-links a.btn-solid:hover{color:#FFFFFF;background:var(--ink-soft)}
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--disp);font-weight:600;font-size:14.5px;padding:13px 26px;border-radius:4px;border:1px solid var(--ink);transition:all .2s;cursor:pointer}
+.btn-solid{background:var(--ink);color:#FFFFFF}
+.btn-solid:hover{background:var(--ink-soft);border-color:var(--ink-soft);transform:translateY(-1px);box-shadow:0 6px 18px rgba(19,26,51,.18)}
+.btn-ghost{color:var(--ink)}
+.btn-ghost:hover{background:var(--ink);color:var(--paper)}
+.menu-toggle{display:none;background:none;border:none;font-size:24px;color:var(--ink);cursor:pointer}
+
+/* ---------- Hero ---------- */
+.hero{padding:90px 0 80px;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:24px;align-items:center}
+.hero h1{font-size:clamp(38px,5.2vw,62px);letter-spacing:-.02em;margin-bottom:24px}
+.hero h1 em{font-style:normal;color:var(--gold-deep);position:relative;white-space:nowrap;background-image:linear-gradient(var(--gold),var(--gold));background-repeat:no-repeat;background-size:100% 3px;background-position:0 96%}
+.hero p{font-size:18px;color:var(--slate);max-width:520px;margin-bottom:36px}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+.hero-meta{margin-top:46px;display:flex;gap:36px;font-family:var(--mono);font-size:12px;color:var(--slate);letter-spacing:.06em}
+.hero-meta strong{display:block;font-family:var(--disp);font-size:26px;color:var(--ink);letter-spacing:0;margin-bottom:2px}
+
+/* orbital animation */
+.orbit-wrap{position:relative;aspect-ratio:1/1;width:100%;max-width:640px;margin-left:auto}
+.orbit-svg{width:100%;height:100%;overflow:visible}
+.rotor{transform-origin:300px 300px;animation:spin var(--d,46s) linear infinite}
+.rotor.rev{animation-direction:reverse}
+.counter{transform-origin:0 0;animation:counterspin var(--d,46s) linear infinite}
+.rotor.rev .counter{animation-direction:reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes counterspin{to{transform:rotate(-360deg)}}
+.node-label{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;fill:var(--slate)}
+.node-chip{fill:#FFFFFF;stroke:var(--line)}
+@media (prefers-reduced-motion:reduce){
+  .rotor,.counter{animation:none}
+  html{scroll-behavior:auto}
+}
+
+/* ---------- Regulatory strip ---------- */
+.regstrip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--paper-dim);padding:26px 0}
+.regstrip .wrap{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.regstrip span{font-family:var(--mono);font-size:12px;letter-spacing:.16em;color:var(--slate);text-transform:uppercase}
+.regstrip .lead-in{color:var(--gold-deep)}
+
+/* ---------- Capabilities ---------- */
+.caps-head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:56px;flex-wrap:wrap}
+.caps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.cap{background:var(--paper);padding:38px 32px;transition:background .25s,box-shadow .25s}
+.cap:hover{background:var(--paper-dim);box-shadow:inset 3px 0 0 var(--gold)}
+.cap-glyph{width:44px;height:44px;margin-bottom:22px}
+.cap h3{font-size:19px;margin-bottom:12px}
+.cap p{font-size:14.5px;color:var(--slate)}
+
+/* ---------- Process ---------- */
+.process{background:var(--ink);color:var(--paper)}
+.process .eyebrow{color:var(--gold-bright)}
+.process h2{color:var(--paper)}
+.process .lead{color:#A7ADC4}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:36px;margin-top:64px;counter-reset:step}
+.step{position:relative;padding-top:26px;border-top:1px solid rgba(226,194,119,.35)}
+.step::before{counter-increment:step;content:"0" counter(step);font-family:var(--mono);font-size:13px;color:var(--gold-bright);position:absolute;top:-9px;background:var(--ink);padding-right:12px;letter-spacing:.1em}
+.step h3{font-size:18px;margin-bottom:10px;color:var(--paper)}
+.step p{font-size:14px;color:#A7ADC4}
+
+/* ---------- Industries ---------- */
+.ind-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:56px}
+.ind{border:1px solid var(--line);border-radius:6px;padding:26px 26px 24px;display:flex;gap:16px;align-items:flex-start;background:#fff;transition:border-color .2s, transform .2s}
+.ind:hover{border-color:var(--gold);transform:translateY(-2px)}
+.ind-dot{flex:none;width:10px;height:10px;border-radius:50%;border:2px solid var(--gold);margin-top:7px}
+.ind h3{font-size:16.5px;margin-bottom:6px}
+.ind p{font-size:13.5px;color:var(--slate)}
+
+/* ---------- About ---------- */
+.about{background:var(--paper-dim);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.about p{color:var(--slate);margin-bottom:18px;font-size:15.5px}
+.about-points{display:grid;gap:0;border-top:1px solid var(--line)}
+.apoint{display:flex;gap:18px;padding:22px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.apoint .k{font-family:var(--mono);font-size:12px;color:var(--gold-deep);letter-spacing:.1em;flex:none;width:34px}
+.apoint div strong{font-family:var(--disp);font-size:16px;display:block;margin-bottom:4px}
+.apoint div span{font-size:14px;color:var(--slate)}
+
+/* ---------- Contact ---------- */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.contact .lead{margin-top:14px}
+.c-rows{margin-top:38px;border-top:1px solid var(--line)}
+.c-row{display:flex;justify-content:space-between;gap:20px;padding:18px 0;border-bottom:1px solid var(--line);font-size:15px}
+.c-row .k{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--slate)}
+.c-row a{color:var(--ink);font-weight:500;border-bottom:1px solid var(--gold)}
+.cform{background:#fff;border:1px solid var(--line);border-radius:8px;padding:36px}
+.cform label{display:block;font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--slate);margin:0 0 8px}
+.cform input,.cform textarea,.cform select{width:100%;font-family:var(--body);font-size:15px;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:13px 14px;margin-bottom:22px}
+.cform input:focus,.cform textarea:focus,.cform select:focus{outline:2px solid var(--gold);outline-offset:0;border-color:var(--gold)}
+.cform button{width:100%;justify-content:center}
+.form-note{font-size:12.5px;color:var(--slate);margin-top:14px;text-align:center}
+
+
+
+
+
+
+
+/* ---------- Footer ---------- */
+footer{background:var(--ink-deep);color:#8A90A8;padding:64px 0 36px;font-size:14px}
+.f-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px;padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,.08)}
+.f-grid h4{font-family:var(--mono);font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;font-weight:500}
+.f-grid a{display:block;padding:5px 0;color:#A7ADC4}
+.f-grid a:hover{color:#fff}
+.f-brand p{margin-top:18px;max-width:320px;font-size:13.5px}
+.f-bottom{display:flex;justify-content:space-between;gap:20px;padding-top:28px;font-size:12.5px;flex-wrap:wrap}
+
+/* ---------- Responsive ---------- */
+@media (max-width:980px){
+  .hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr}
+  .orbit-wrap{margin:36px auto 0;max-width:480px}
+  .caps-grid{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .ind-grid{grid-template-columns:1fr 1fr}
+  .f-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:680px){
+  section{padding:68px 0}
+  .nav-links{position:fixed;inset:74px 0 auto 0;background:var(--paper);flex-direction:column;align-items:stretch;padding:18px 28px 26px;gap:4px;border-bottom:1px solid var(--line);display:none}
+  .nav-links.open{display:flex}
+  .nav-links a{padding:12px 0;border-bottom:1px solid var(--line)}
+  .nav-links .btn{margin-top:14px;justify-content:center}
+  .menu-toggle{display:block}
+  .caps-grid,.steps,.ind-grid,.f-grid{grid-template-columns:1fr}
+  .hero{padding:56px 0 48px}
+  .hero-meta{gap:24px;flex-wrap:wrap}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top" aria-label="Quaoar Consulting Limited — home">
+      <svg viewBox="0 0 140 140" fill="none" aria-hidden="true">
+        <g transform="translate(70,70)">
+          <circle r="30" fill="#131A33"/>
+          <circle r="11" fill="none" stroke="#E2C277" stroke-width="2.4"/>
+          <path d="M -8 1.5 L -2.5 7 L 9 -6" stroke="#E2C277" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          <g transform="rotate(-24)">
+            <path d="M 52 0 A 52 19 0 0 1 -52 0" fill="none" stroke="#C9A14E" stroke-width="4" stroke-linecap="round"/>
+            <path d="M -52 0 A 52 19 0 0 1 -28.5 -16.4" fill="none" stroke="#C9A14E" stroke-width="4" stroke-linecap="round" opacity="0.35"/>
+            <path d="M 52 0 A 52 19 0 0 0 28.5 -16.4" fill="none" stroke="#C9A14E" stroke-width="4" stroke-linecap="round" opacity="0.35"/>
+            <circle cx="52" cy="0" r="5" fill="#C9A14E"/>
+          </g>
+        </g>
+      </svg>
+      <span class="brand-name">QUAOAR<span>CONSULTING LIMITED</span></span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#capabilities">Capabilities</a>
+      <a href="#approach">Approach</a>
+      <a href="#industries">Industries</a>
+      <a href="#about">About</a>
+      <a href="#contact" class="btn btn-solid">Speak to a consultant</a>
+    </nav>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">☰</button>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">KYC · KYB · AML Advisory</p>
+      <h1>Compliance that holds its <em>orbit.</em></h1>
+      <p>Quaoar Consulting designs, builds and operates KYC and AML programs for financial institutions, payment firms and digital asset businesses — so every customer, counterparty and transaction stays inside a verified perimeter.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn btn-solid">Request a consultation</a>
+        <a href="#capabilities" class="btn btn-ghost">Explore capabilities</a>
+      </div>
+      <div class="hero-meta">
+        <div><strong>200+</strong>onboarding frameworks delivered</div>
+        <div><strong>14</strong>jurisdictions covered</div>
+        <div><strong>48h</strong>typical remediation kick-off</div>
+      </div>
+    </div>
+
+    <div class="orbit-wrap" aria-hidden="true">
+      <svg class="orbit-svg" viewBox="0 0 600 600" fill="none">
+        <!-- static rings -->
+        <circle cx="300" cy="300" r="120" stroke="#E0DDD2" stroke-width="1.2"/>
+        <circle cx="300" cy="300" r="190" stroke="#E0DDD2" stroke-width="1.2"/>
+        <circle cx="300" cy="300" r="262" stroke="#E0DDD2" stroke-width="1.2"/>
+        <!-- gold ring accents -->
+        <circle cx="300" cy="300" r="190" stroke="#C9A14E" stroke-width="2" stroke-dasharray="7 290" stroke-linecap="round" opacity=".9"/>
+        <circle cx="300" cy="300" r="262" stroke="#C9A14E" stroke-width="1.6" stroke-dasharray="4 405" stroke-linecap="round" opacity=".55"/>
+        <!-- core entity -->
+        <circle cx="300" cy="300" r="78" fill="#131A33"/>
+        <circle cx="300" cy="300" r="62" stroke="#E2C277" stroke-width="1" opacity=".25"/>
+        <circle cx="300" cy="300" r="27" stroke="#E2C277" stroke-width="3" fill="none"/>
+        <path d="M 281 302 L 294 315 L 321 286" stroke="#E2C277" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+
+        <!-- ring 1 (r=120, 40s) -->
+        <g class="rotor" style="--d:40s">
+          <g transform="translate(300,180)">
+            <g class="counter" style="--d:40s">
+              <circle r="7" fill="#131A33"/><circle r="13" stroke="#C9A14E" stroke-width="1.5" fill="none"/>
+              <rect class="node-chip" x="-58" y="20" width="116" height="22" rx="11"/>
+              <text class="node-label" y="35" text-anchor="middle">ID&#160;VERIFICATION</text>
+            </g>
+          </g>
+        </g>
+
+        <!-- ring 2 (r=190, 62s, reverse) -->
+        <g class="rotor rev" style="--d:62s">
+          <g transform="translate(300,110)">
+            <g class="counter" style="--d:62s">
+              <circle r="7" fill="#131A33"/><circle r="13" stroke="#C9A14E" stroke-width="1.5" fill="none"/>
+              <rect class="node-chip" x="-46" y="20" width="92" height="22" rx="11"/>
+              <text class="node-label" y="35" text-anchor="middle">SANCTIONS</text>
+            </g>
+          </g>
+          <g transform="translate(490,300)">
+            <g class="counter" style="--d:62s">
+              <circle r="7" fill="#131A33"/><circle r="13" stroke="#C9A14E" stroke-width="1.5" fill="none"/>
+              <rect class="node-chip" x="-24" y="20" width="48" height="22" rx="11"/>
+              <text class="node-label" y="35" text-anchor="middle">PEP</text>
+            </g>
+          </g>
+          <g transform="translate(166,166)">
+            <g class="counter" style="--d:62s"><circle r="4.5" fill="#C9A14E"/></g>
+          </g>
+        </g>
+
+        <!-- ring 3 (r=262, 88s) -->
+        <g class="rotor" style="--d:88s">
+          <g transform="translate(38,300)">
+            <g class="counter" style="--d:88s">
+              <circle r="7" fill="#131A33"/><circle r="13" stroke="#C9A14E" stroke-width="1.5" fill="none"/>
+              <rect class="node-chip" x="-24" y="20" width="48" height="22" rx="11"/>
+              <text class="node-label" y="35" text-anchor="middle">UBO</text>
+            </g>
+          </g>
+          <g transform="translate(300,562)">
+            <g class="counter" style="--d:88s">
+              <circle r="7" fill="#131A33"/><circle r="13" stroke="#C9A14E" stroke-width="1.5" fill="none"/>
+              <rect class="node-chip" x="-58" y="20" width="116" height="22" rx="11"/>
+              <text class="node-label" y="35" text-anchor="middle">ADVERSE&#160;MEDIA</text>
+            </g>
+          </g>
+          <g transform="translate(485,115)">
+            <g class="counter" style="--d:88s"><circle r="4.5" fill="#C9A14E"/></g>
+          </g>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REGULATORY STRIP ============ -->
+<div class="regstrip">
+  <div class="wrap">
+    <span class="lead-in">Frameworks aligned to</span>
+    <span>MAS Notices 626 / PSN01</span>
+    <span>HKMA AMLO</span>
+    <span>FATF Recommendations</span>
+    <span>FinCEN / FINTRAC</span>
+    <span>EU AMLD6</span>
+  </div>
+</div>
+
+<!-- ============ CAPABILITIES ============ -->
+<section id="capabilities">
+  <div class="wrap">
+    <div class="caps-head">
+      <div>
+        <p class="eyebrow">Capabilities</p>
+        <h2>The full compliance lifecycle,<br>under one practice.</h2>
+      </div>
+      <p class="lead">From first risk assessment to ongoing monitoring, we cover everything a regulated business needs to onboard customers with confidence — without building a compliance department from scratch.</p>
+    </div>
+
+    <div class="caps-grid">
+      <article class="cap">
+        <svg class="cap-glyph" viewBox="0 0 44 44" fill="none"><circle cx="22" cy="22" r="14" stroke="#131A33" stroke-width="2"/><path d="M16 22.5 L20.5 27 L29 17.5" stroke="#C9A14E" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h3>KYC Program Design</h3>
+        <p>Risk-based customer due diligence frameworks, onboarding workflows, EDD triggers and approval matrices — documented, board-ready and proportionate to your licence obligations.</p>
+      </article>
+      <article class="cap">
+        <svg class="cap-glyph" viewBox="0 0 44 44" fill="none"><rect x="8" y="10" width="28" height="24" rx="3" stroke="#131A33" stroke-width="2"/><circle cx="18" cy="20" r="3.5" stroke="#C9A14E" stroke-width="2"/><path d="M13 30 c1.5 -4 8.5 -4 10 0" stroke="#C9A14E" stroke-width="2" stroke-linecap="round"/><path d="M27 18 h6 M27 24 h6" stroke="#131A33" stroke-width="2" stroke-linecap="round"/></svg>
+        <h3>KYB & UBO Mapping</h3>
+        <p>Corporate onboarding for complex structures: registry verification, multi-layer ownership charts, ultimate beneficial owner identification and member-level KYC across jurisdictions.</p>
+      </article>
+      <article class="cap">
+        <svg class="cap-glyph" viewBox="0 0 44 44" fill="none"><circle cx="20" cy="20" r="10" stroke="#131A33" stroke-width="2"/><path d="M28 28 L36 36" stroke="#131A33" stroke-width="2.4" stroke-linecap="round"/><circle cx="20" cy="20" r="3.5" fill="#C9A14E"/></svg>
+        <h3>Screening Frameworks</h3>
+        <p>Sanctions, PEP and adverse media screening calibrated to your risk appetite — list selection, fuzzy-match thresholds, alert handling procedures and ongoing monitoring cadence.</p>
+      </article>
+      <article class="cap">
+        <svg class="cap-glyph" viewBox="0 0 44 44" fill="none"><path d="M10 32 L18 22 L25 27 L34 13" stroke="#131A33" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="34" cy="13" r="4" stroke="#C9A14E" stroke-width="2"/></svg>
+        <h3>Transaction Monitoring</h3>
+        <p>Scenario and rule design for fiat and crypto flows, threshold tuning, STR/SAR escalation playbooks and wallet screening procedures that stand up to regulator scrutiny.</p>
+      </article>
+      <article class="cap">
+        <svg class="cap-glyph" viewBox="0 0 44 44" fill="none"><path d="M22 8 L34 13 V22 C34 30 29 34.5 22 37 C15 34.5 10 30 10 22 V13 Z" stroke="#131A33" stroke-width="2" stroke-linejoin="round"/><path d="M17 21.5 L20.8 25.5 L28 17.5" stroke="#C9A14E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h3>Remediation & Lookbacks</h3>
+        <p>Backlog clearance, file remediation and historical transaction reviews delivered by an experienced analyst bench — with audit trails your examiners can follow end to end.</p>
+      </article>
+      <article class="cap">
+        <svg class="cap-glyph" viewBox="0 0 44 44" fill="none"><rect x="9" y="9" width="11" height="11" rx="2" stroke="#131A33" stroke-width="2"/><rect x="24" y="24" width="11" height="11" rx="2" stroke="#131A33" stroke-width="2"/><path d="M20 14.5 H29.5 V24" stroke="#C9A14E" stroke-width="2" stroke-linecap="round"/><path d="M24 29.5 H14.5 V20" stroke="#C9A14E" stroke-width="2" stroke-linecap="round"/></svg>
+        <h3>Vendor Selection & Integration</h3>
+        <p>Independent evaluation of KYC/AML tooling, RFP support and implementation oversight — we configure the platform around your policy, not the other way around.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section class="process" id="approach">
+  <div class="wrap">
+    <p class="eyebrow">How we engage</p>
+    <h2>A defined path from exposure<br>to assurance.</h2>
+    <p class="lead" style="margin-top:18px">Every engagement follows the same disciplined sequence, whether we're building a program from zero or repairing one under regulatory pressure.</p>
+
+    <div class="steps">
+      <div class="step">
+        <h3>Assess</h3>
+        <p>Enterprise-wide risk assessment, gap analysis against your licence conditions, and a prioritised findings register within the first two weeks.</p>
+      </div>
+      <div class="step">
+        <h3>Design</h3>
+        <p>Policies, procedures, risk-scoring models and escalation matrices drafted to your regulator's expectations — reviewed with your board and MLRO.</p>
+      </div>
+      <div class="step">
+        <h3>Implement</h3>
+        <p>Workflow configuration, vendor integration, analyst training and parallel-run testing until the program performs under real volume.</p>
+      </div>
+      <div class="step">
+        <h3>Monitor</h3>
+        <p>Periodic reviews, independent testing, regulatory horizon scanning and ongoing tuning so the program stays effective as your business grows.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INDUSTRIES ============ -->
+<section id="industries">
+  <div class="wrap">
+    <p class="eyebrow">Industries</p>
+    <h2>Built for businesses where<br>trust is the product.</h2>
+
+    <div class="ind-grid">
+      <div class="ind"><span class="ind-dot"></span><div><h3>Payments & Cross-Border FX</h3><p>MAS PSA and HKMA MSO licensees managing correspondent risk and multi-currency flows.</p></div></div>
+      <div class="ind"><span class="ind-dot"></span><div><h3>Digital Assets & VASPs</h3><p>Exchanges, OTC desks and custodians navigating travel rule, wallet screening and DPT regimes.</p></div></div>
+      <div class="ind"><span class="ind-dot"></span><div><h3>Banking & Neobanks</h3><p>Onboarding at scale with perpetual KYC, periodic review cycles and high-risk segment controls.</p></div></div>
+      <div class="ind"><span class="ind-dot"></span><div><h3>Wealth & Asset Management</h3><p>Source-of-wealth corroboration, PEP handling and complex-structure due diligence for private clients.</p></div></div>
+      <div class="ind"><span class="ind-dot"></span><div><h3>Lending & BNPL</h3><p>Fast, low-friction identity verification balanced against fraud and credit-washing exposure.</p></div></div>
+      <div class="ind"><span class="ind-dot"></span><div><h3>Corporate Services & Trustees</h3><p>CSP and trust company obligations: nominee structures, registers of controllers and ongoing CDD.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div>
+      <p class="eyebrow">About Quaoar</p>
+      <h2 style="margin-bottom:26px">Named after the dwarf planet with an impossible ring.</h2>
+      <p>Quaoar's ring orbits where no ring should survive — far beyond the limit where physics says it should scatter. It holds anyway. That's the standard we set for compliance: a perimeter that holds under conditions that break ordinary programs.</p>
+      <p>Quaoar Consulting Limited is a specialist KYC and AML advisory practice serving regulated businesses across Asia-Pacific. Our consultants come from compliance leadership roles inside banks, payment institutions and digital asset firms — people who have sat across the table from regulators, not just read the guidance.</p>
+    </div>
+    <div class="about-points">
+      <div class="apoint"><span class="k">A1</span><div><strong>Practitioner-led</strong><span>Every engagement is run by a consultant who has held MLRO or compliance officer responsibility in a regulated firm.</span></div></div>
+      <div class="apoint"><span class="k">A2</span><div><strong>Jurisdiction-fluent</strong><span>Working coverage of Singapore, Hong Kong, Malaysia and major offshore centres, with FATF-aligned baselines everywhere else.</span></div></div>
+      <div class="apoint"><span class="k">A3</span><div><strong>Technology-neutral</strong><span>We hold no reseller arrangements with screening vendors. Recommendations are based on fit, evidence and cost.</span></div></div>
+      <div class="apoint"><span class="k">A4</span><div><strong>Outcome-documented</strong><span>Every deliverable is written to be shown to an examiner: versioned, evidenced and traceable to a regulatory requirement.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <p class="eyebrow">Contact</p>
+      <h2>Tell us where the<br>gaps are.</h2>
+      <p class="lead">Whether you're applying for a licence, scaling onboarding, or responding to regulator findings — start with a confidential conversation. We'll come back within one business day.</p>
+      <div class="c-rows">
+        <div class="c-row"><span class="k">Email</span><a href="mailto:hello@quaoarconsulting.services">hello@quaoarconsulting.services</a></div>
+        <div class="c-row"><span class="k">Address</span><span style="text-align:right;max-width:320px">RM 1903, 19/F Lee Garden One,<br>33 Hysan Avenue, Causeway Bay,<br>Hong Kong</span></div>
+        <div class="c-row"><span class="k">Hours</span><span>Mon–Fri, 9:00–18:00 HKT</span></div>
+      </div>
+    </div>
+
+    <form class="cform" id="contactForm" action="https://formspree.io/f/maqzdlez" method="POST">
+      <label for="f-name">Name</label>
+      <input id="f-name" name="name" type="text" placeholder="Your name" autocomplete="name" required>
+      <label for="f-email">Work email</label>
+      <input id="f-email" name="email" type="email" placeholder="you@company.com" autocomplete="email" required>
+      <label for="f-topic">What do you need help with?</label>
+      <select id="f-topic" name="topic">
+        <option>KYC / KYB program design</option>
+        <option>AML screening & monitoring</option>
+        <option>Remediation or lookback</option>
+        <option>Licensing & regulatory support</option>
+        <option>Vendor selection</option>
+        <option>Something else</option>
+      </select>
+      <label for="f-msg">Message</label>
+      <textarea id="f-msg" name="message" rows="4" placeholder="A sentence or two about your situation" required></textarea>
+      <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+      <button class="btn btn-solid" id="sendBtn" type="submit">Send enquiry</button>
+      <p class="form-note" id="formNote">Submissions are treated as confidential. No marketing follow-ups.</p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div class="f-brand">
+        <svg width="160" viewBox="0 0 560 140" fill="none" aria-label="Quaoar Consulting Limited">
+          <g transform="translate(70,70)">
+            <circle r="30" fill="#F7F6F2"/>
+            <circle r="11" fill="none" stroke="#B8893B" stroke-width="2"/>
+            <path d="M -8 1.5 L -2.5 7 L 9 -6" stroke="#B8893B" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            <g transform="rotate(-24)">
+              <path d="M 52 0 A 52 19 0 0 1 -52 0" fill="none" stroke="#C9A14E" stroke-width="3.5" stroke-linecap="round"/>
+              <circle cx="52" cy="0" r="4.5" fill="#E2C277"/>
+            </g>
+          </g>
+          <text x="150" y="78" font-family="'Space Grotesk',sans-serif" font-size="46" font-weight="600" letter-spacing="4" fill="#F7F6F2">QUAOAR</text>
+          <text x="152" y="106" font-family="'Space Grotesk',sans-serif" font-size="15" font-weight="500" letter-spacing="9.5" fill="#C9A14E">CONSULTING LIMITED</text>
+        </svg>
+        <p>Specialist KYC, KYB and AML compliance advisory for regulated businesses across Asia-Pacific.</p>
+      </div>
+      <div>
+        <h4>Practice</h4>
+        <a href="#capabilities">Capabilities</a>
+        <a href="#approach">How we engage</a>
+        <a href="#industries">Industries</a>
+        <a href="#about">About</a>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <a href="mailto:hello@quaoarconsulting.services">hello@quaoarconsulting.services</a>
+        <p style="margin-top:14px;font-size:13px;line-height:1.7;color:#8A90A8">RM 1903, 19/F Lee Garden One,<br>33 Hysan Avenue, Causeway Bay,<br>Hong Kong</p>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <span>© 2026 Quaoar Consulting Limited. All rights reserved.</span>
+      <span>Quaoar Consulting provides advisory services and does not provide legal advice.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// mobile menu
+const toggle = document.getElementById('menuToggle');
+const links = document.getElementById('navLinks');
+toggle.addEventListener('click', () => {
+  const open = links.classList.toggle('open');
+  toggle.setAttribute('aria-expanded', open);
+  toggle.textContent = open ? '✕' : '☰';
+});
+links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  links.classList.remove('open');
+  toggle.setAttribute('aria-expanded', 'false');
+  toggle.textContent = '☰';
+}));
+
+// contact form → Formspree (AJAX, stays on page)
+const cform = document.getElementById('contactForm');
+cform.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const btn = document.getElementById('sendBtn');
+  const note = document.getElementById('formNote');
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+  try {
+    const res = await fetch(cform.action, {
+      method: 'POST',
+      body: new FormData(cform),
+      headers: { 'Accept': 'application/json' }
+    });
+    if (res.ok) {
+      cform.reset();
+      btn.textContent = 'Enquiry sent ✓';
+      note.textContent = 'Thank you — we\'ll come back within one business day.';
+    } else {
+      const data = await res.json().catch(() => ({}));
+      btn.disabled = false;
+      btn.textContent = 'Send enquiry';
+      note.textContent = (data.errors && data.errors[0] && data.errors[0].message) || 'Something went wrong. Please email hello@quaoarconsulting.services directly.';
+    }
+  } catch {
+    btn.disabled = false;
+    btn.textContent = 'Send enquiry';
+    note.textContent = 'Network error. Please email hello@quaoarconsulting.services directly.';
+  }
+});
+</script>
+</body>
+</html>
